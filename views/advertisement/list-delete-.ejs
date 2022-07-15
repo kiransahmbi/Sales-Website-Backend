@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+<%- include partials/Head -%>
+
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md">
+
+                    <%- include partials/NavBar -%>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <a href="/inventory/add" class="btn btn-primary align-self-end" role="button">
+                <i class="fas fa-plus-circle"></i> Add a New Advertisement
+            </a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <!-- Header Row-->
+                <tr>
+                    <th class="text-center">Product Name</th>
+                    <th class="text-center">Brand</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Category</th>
+                    <th class="text-center">Condition</th>
+                    <th class="text-center">Expiry Date</th>
+
+                </tr>
+
+                <!-- Repeatable Template Row -->
+
+                <% for(let i = 0; i < AdvertisementList.length; i++) { %>
+                    <tr>
+                        <td class="text-center">
+                            <%= AdvertisementList[i].Name %>
+                        </td>
+                        <td class="text-center">
+                            <%= AdvertisementList[i].ContactNumber %>
+                        </td>
+                        <td class="text-center">
+                            <%= AdvertisementList[i].EmailAddress %>
+                        </td>
+
+                        <td class="text-center">
+                            <%= AdvertisementList[i].tags %>
+                        </td>
+                        <td class="text-center">
+                            <a href="/inventory/edit/<%= AdvertisementList[i]._id %>" class="btn btn-primary btn-sm">
+                                <i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                        <td class="text-center">
+                            <a href="/inventory/delete/<%= AdvertisementList[i]._id %>" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+        <%- include partials/Footer -%>
+    </body>
+
+
+</html>

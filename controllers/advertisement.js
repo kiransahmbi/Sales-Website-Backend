@@ -26,7 +26,7 @@ module.exports.advertisementList = function(req, res, next){
                         message: getErrorMessage(err)
                     });
             } else {
-                res.render('advertisements', {
+                res.render('advertisement/advertisements', {
                     title: 'Advertisements', 
                     AdvertisementList: advertisementList
                 });
@@ -51,7 +51,7 @@ module.exports.displayEditPage = (req, res, next) => {
            console.log(err);
            res.end(err);
        } else {
-           res.render('add_edit', {
+           res.render('/advertisement/add_edit', {
                title: 'Edit Item', 
                item: itemToEdit
         })
@@ -106,7 +106,7 @@ module.exports.performDelete = (req, res, next) => {
                 res.end(err);    
             } else {
                 // refresh advertisements
-                res.redirect('/inventory/list');
+                res.redirect('/advertisement/list');
             }
     });
     } catch (error) {
@@ -122,7 +122,7 @@ module.exports.performDelete = (req, res, next) => {
 module.exports.displayAddPage = (req, res, next) => {
    let newItem = AdvertisementModel();
 
-   res.render('add_edit', {
+   res.render('advertisement/add_edit', {
        title: 'Add a New Advertisement',
        item: newItem
    });     

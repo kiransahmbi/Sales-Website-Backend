@@ -1,22 +1,15 @@
-<!-- Ahnaf Tahmid's work -->
-<!DOCTYPE html>
-<html>
-<%- include ./partials/Head.ejs %>
+<%- include ../partials/header.ejs %>
+<%- include ../partials/navbar.ejs %>
 
-    <!-- Content for list page -->
-
-    <body>
         <div class="container">
             <div class="row">
                 <div class="col-md">
-
-                    <%- include ./partials/NavBar.ejs %>
-
+                    
                 </div>
             </div>
             <br>
             <div>
-                <a href="/views/views/advertisement/add_edit.ejs" class="btn btn-primary align-self-end" role="button">
+                <a href="/advertisement/add" class="btn btn-primary align-self-end" role="button">
                     <i class="fas fa-plus-circle"></i> Add a new Product
                 </a>
             </div>
@@ -74,7 +67,6 @@
                 </table>
 
             </div>
-            <%- include ./partials/Footer.ejs %>
+            <%- include ../partials/footer.ejs %>
     </body>
-
 </html>
