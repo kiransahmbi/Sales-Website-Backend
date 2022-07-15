@@ -7,42 +7,15 @@ router.get('/', home);
 function home (req, res, next) {
   res.render('homepage',
    { 
-     title: 'Home'
+     title: 'BuySell Used Products!'
      });
 };
-router.get('/aboutme', aboutMe);
+router.get('/aboutus', aboutUs);
 
-function aboutMe (req, res, next) {
-  res.render('aboutme',
+function aboutUs (req, res, next) {
+  res.render('aboutus',
    { 
-     title: 'About Me'
-     });
-};
-
-router.get('/services', services);
-
-function services (req, res, next) {
-  res.render('services',
-   { 
-     title: 'Services' 
-     });
-};
-
-router.get('/projects', projects);
-
-function projects (req, res, next) {
-  res.render('projects',
-   { 
-     title: 'My Work'
-     });
-};
-
-router.get('/contactme', ContactMe);
-
-function ContactMe (req, res, next) {
-  res.render('contactme',
-   { 
-     title: 'Lets Connect'
+     title: 'About Us'
      });
 };
 
