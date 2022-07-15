@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+let advertisementController = require('../controllers/advertisement');
+
 // Get Advertisement List
 router.get('/list', advertisementController.advertisementList);
 
