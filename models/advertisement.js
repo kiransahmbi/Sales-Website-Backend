@@ -9,11 +9,23 @@ let advertisementModel = mongoose.Schema(
         Price: Number,
         Category: String,
         Condition: String,
-        ExpiryDate: Date,
-        
+        DateEnabled: {
+            type: Date,
+            default: $currentDate
+        },
+        Lifetime: {
+            type: Date,
+            default: {
+                $dateAdd: {
+                    startDate: $currentDate,
+                    unit: "month",
+                    amount: 1
+                    }
+            }
+        }   
     },
     {
-        collection: "Advertisement"
+        collection: "advertisements"
     }
 );
 
