@@ -1,11 +1,11 @@
 <html>
 
+<body style="background-color:rgba(243, 233, 233, 0.795) ;">
+    <%- include ../partials/header.ejs %>
 
-<%- include ../partials/header.ejs %>
-
-    <body style="background-color:rgba(247, 231, 231, 0.795);">
         <%- include ../partials/navbar.ejs %>
             <link rel="stylesheet" href="/public/stylesheets/list.css">
+
             <div class="container">
 
                 <div class="row">
@@ -15,64 +15,66 @@
                 </div>
                 <br>
                 <div>
+
                     <a href="/advertisement/add" class="btn btn-primary align-self-end" role="button">
                         <i class="fas fa-plus-circle"></i> Add a new Product
                     </a>
 
                 </div>
                 <br>
-                <div class="mt-2">
-                    <h4 class="text-uppercase">Product List</h4>
-                    <div class="mt-5">
-                        <% for(let i = 0; i < AdvertisementList.length; i++) { %>
-                            <h5 class="text-uppercase mb-0">
-                                <%= AdvertisementList[i].Brand %>
-                            </h5>
-                            <h1 class="main-heading mt-0">
-                                <%= AdvertisementList[i].ProductName %>
-                            </h1>
-                            <div class="d-flex flex-row user-ratings">
-                                <div class="ratings">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
+                <div class="card" style="width: 18rem ; background-color:rgba(236, 213, 213, 0.795) ;">
+                    <div class="mt-2">
+                        <h4 class="text-uppercase">Product List</h4>
+                        <div class="mt-5">
+                            <% for(let i = 0; i < AdvertisementList.length; i++) { %>
+                                <h5 class="text-uppercase mb-0">
+                                    <%= AdvertisementList[i].Brand %>
+                                </h5>
+                                <h1 class="main-heading mt-0">
+                                    <%= AdvertisementList[i].ProductName %>
+                                </h1>
+                                <div class="d-flex flex-row user-ratings">
+                                    <div class="ratings">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <h6 class="text-muted ml-1">
+                                        $
+                                        <%= AdvertisementList[i].Price %>
+                                    </h6>
                                 </div>
-                                <h6 class="text-muted ml-1">
-                                    $
-                                    <%= AdvertisementList[i].Price %>
-                                </h6>
-                            </div>
-                            <!-- <div class="d-flex justify-content-between align-items-center mt-2 mb-2"> -->
-                            <span>Category:
+                                <!-- <div class="d-flex justify-content-between align-items-center mt-2 mb-2"> -->
+                                <span>Category:
                                 <%= AdvertisementList[i].Category %></span>
-                            <br><span>Condition:
-                                <%= AdvertisementList[i].Condition %></span><br>
-                            <!-- <br><span>Expiry Date:
+                                <br><span>Condition:
+                                <%= AdvertisementList[i].Condition %></span>
+                                <!-- <br><span>Expiry Date:
                                 <%= AdvertisementList[i].lifetime %></span> -->
 
 
-                    </div>
-                    <!-- <button class="btn btn-danger">Add to cart</button> -->
-                    <br>
-                    <a href="/advertisement/add_edit/<%= AdvertisementList[i]._id %>" class="btn btn-danger">
-                        <i class="btn btn-danger"></i>Edit</a>
+                        </div>
+                        <!-- <button class="btn btn-danger">Add to cart</button> -->
+                        <br>
+                        <div>
+                            <a href="/advertisement/edit/<%= AdvertisementList[i]._id %>" class="btn btn-danger">
+                                <i class="btn btn-danger"></i>Edit</a>
 
-                    <a href="/advertisement/delete/<%= AdvertisementList[i]._id %>" class="btn btn-danger">
-                        <i class="btn btn-danger"></i>Delete</a>
-                    </td>
-                    <% } %>
+                            <a href="/advertisement/delete/<%= AdvertisementList[i]._id %>" class="btn btn-danger">
+                                <i class="btn btn-danger"></i>Delete</a>
+
+                            <% } %>
+                        </div>
+                    </div>
+                    <!-- <div class="image"> -->
+                    <!-- <img src="https://i.imgur.com/MGorDUi.png" width="200"> -->
                 </div>
             </div>
-            <!-- <div class="image"> -->
-            <!-- <img src="https://i.imgur.com/MGorDUi.png" width="200"> -->
-            </div>
-            </div>
 
 
             </div>
-
-            </div>
-            <%- include ../partials/Footer.ejs %>
+</body>
 
 </html>
+<%- include ../partials/Footer.ejs %>
