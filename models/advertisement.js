@@ -5,6 +5,7 @@ let mongoose = require('mongoose');
 let advertisementModel = mongoose.Schema(
     {
         ProductName: String,
+        Description: String,
         Brand: String,
         Price: Number,
         Category: String,
