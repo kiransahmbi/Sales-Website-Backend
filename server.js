@@ -8,7 +8,6 @@
 var app = require('./config/app');
 var debug = require('debug')('comp:server');
 var http = require('http');
-var passportConfig = require('./config/passport');
 /**
  * Get port from environment and store in Express.
  */
@@ -25,7 +24,6 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-let passport = passportConfig();
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
