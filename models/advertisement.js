@@ -11,13 +11,13 @@ let advertisementModel = mongoose.Schema(
         Condition: String,
         DateEnabled: {
             type: Date,
-            default: $currentDate
+            default: "$currentDate"
         },
         Lifetime: {
             type: Date,
             default: {
                 $dateAdd: {
-                    startDate: $currentDate,
+                    startDate: "$currentDate",
                     unit: "month",
                     amount: 1
                     }
