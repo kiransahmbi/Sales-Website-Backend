@@ -23,7 +23,8 @@ let advertisementModel = mongoose.Schema(
                     amount: 1
                     }
             }
-        }   
+        }  ,
+        Imagelink: String 
     },
     {
         collection: "advertisements"

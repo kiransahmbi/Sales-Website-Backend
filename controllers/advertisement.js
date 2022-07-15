@@ -68,7 +68,8 @@ module.exports.processEditPage = (req, res, next) => {
             Category: req.body.category,
             Condition: req.body.condition,
             DateEnabled: req.body.dateEnabled,
-            Lifetime: req.body.lifetime
+            Lifetime: req.body.lifetime,
+            Imagelink: req.body.Imagelink
         });
 
         console.log(updatedItem);
