@@ -1,5 +1,5 @@
 body {
-    background-color: #dce3f0;
+    background-color: #c4b042;
 }
 
 .height {
@@ -65,14 +65,13 @@ body {
     font-size: 18px;
 }
 
-
-/* body {
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #F8F005;
-} */
+}
 
 button,
 button::after {
