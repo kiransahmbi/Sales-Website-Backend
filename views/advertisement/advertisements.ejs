@@ -1,72 +1,68 @@
 <%- include ../partials/header.ejs %>
+
 <%- include ../partials/navbar.ejs %>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md">
-                    
-                </div>
-            </div>
-            <br>
-            <div>
-                <a href="/advertisement/add" class="btn btn-primary align-self-end" role="button">
-                    <i class="fas fa-plus-circle"></i> Add a new Product
-                </a>
-            </div>
-            <br>
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped table-hover">
-                    <!-- Header Row-->
+    <div class="container-fluid">
+        <div>
+            <a href="/advertisement/add" class="btn btn-primary align-self-end" role="button">
+                <i class="fas fa-plus-circle"></i> Add a New Advertisement
+            </a>
+        </div>
+        <br>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <!-- Header Row-->
+                <tr>
+                    <th class="text-center">Product Name</th>
+                    <th class="text-center">Brand</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Category</th>
+                    <th class="text-center">Condition</th>
+                    <!-- <th class="text-center">Expiry Date</th> -->
+
+                    <th class="text-center" colspan="3">Actions</th>
+                </tr>
+
+                <!-- Repeatable Template Row -->
+                <% console.log(AdvertisementList) %>
+                <% for(let i = 0; i < AdvertisementList.length; i++) { %>
                     <tr>
-                        <th class="text-center">Product Name</th>
-                        <th class="text-center">Brand</th>
-                        <th class="text-center">Price</th>
-                        <th class="text-center">Category</th>
-                        <th class="text-center">Condition</th>
-                        <!-- <th class="text-center">Expiry Date</th> -->
+                        <td class="text-center">
+                            <%= AdvertisementList[i].ProductName %>
+                        </td>
+                        <td class="text-center">
+                            <%= AdvertisementList[i].Brand %>
+                        </td>
+                        <td class="text-center">
+                            <%= AdvertisementList[i].Price %>
+                        </td>
+                        <td class="text-center">
+                            <%= AdvertisementList[i].Category %>
+                        </td>
+                        <td class="text-center">
+                            <%= AdvertisementList[i].Condition %>
+                        </td>
+                        <!-- <td class="text-center">
+                            <%= AdvertisementList[i].lifetime %>
+                        </td> -->
 
-                        <th class="text-center" colspan="3">Actions</th>
+                        </td>
+                        </td>
+                        <td class="text-center">
+                            <a href="/advertisement/add_edit/<%= AdvertisementList[i]._id %>" class="btn btn-success btn-sm">
+                                <i class="fas fa-info"></i> </a>
+                        </td>
+
+                        <td class="text-center">
+                            <a href="/advertisement/delete/<%= AdvertisementList[i]._id %>" class="btn btn-success btn-sm">
+                                <i class="fas fa-info"></i> </a>
+                        </td>
                     </tr>
-
-                    <!-- Repeatable Template Row -->
-
-                    <% for(let i = 0; i < AdvertisementList.length; i++) { %>
-                        <tr>
-                            <td class="text-center">
-                                <%= AdvertisementList[i].ProductName %>
-                            </td>
-                            <td class="text-center">
-                                <%= AdvertisementList[i].Brand %>
-                            </td>
-                            <td class="text-center">
-                                <%= AdvertisementList[i].Price %>
-                            </td>
-                            <td class="text-center">
-                                <%= AdvertisementList[i].Category %>
-                            </td>
-                            <td class="text-center">
-                                <%= AdvertisementList[i].Condition %>
-                            </td>
-                            <!-- <td class="text-center">
-                                <%= AdvertisementList[i].lifetime %>
-                            </td> -->
-
-                            </td>
-                            </td>
-                            <td class="text-center">
-                                <a href="/advertisement/add_edit/<%= AdvertisementList[i]._id %>" class="btn btn-success btn-sm">
-                                    <i class="fas fa-info"></i> </a>
-                            </td>
-
-                            <td class="text-center">
-                                <a href="/advertisement/delete/<%= AdvertisementList[i]._id %>" class="btn btn-success btn-sm">
-                                    <i class="fas fa-info"></i> </a>
-                            </td>
-                        </tr>
-                        <% } %>
-                </table>
+                    <% } %>
+            </table>
 
             </div>
-            <%- include ../partials/footer.ejs %>
+        <%- include ../partials/footer.ejs %>
+    </div>
     </body>
 </html>
