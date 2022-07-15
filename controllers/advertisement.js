@@ -45,7 +45,7 @@ module.exports.advertisementList = function(req, res, next){
 module.exports.displayEditPage = (req, res, next) => {
    let id = req.params.id;
 
-   InventoryModel.findById(id, (err, itemToEdit) => {
+   AdvertisementModel.findById(id, (err, itemToEdit) => {
        if(err)
        {
            console.log(err);
