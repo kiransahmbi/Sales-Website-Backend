@@ -1,0 +1,96 @@
+<%- include ../partials/header.ejs %>
+
+<!-- Content for the Add_Edit page -->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1><%= title %></h1>
+
+            <form class="form" method="POST">
+                <div class="form-group">
+                    <input type="hidden"
+                        name="id"
+                        value="<%= item._id %>"
+                    >
+                    <label for="productNameTextField">Product Name</label>
+                    <input type="text" class="form-control"
+                        id="productNameTextField"
+                        placeholder="Enter the Product Name"
+                        name="productName" 
+                        value="<%= item.productName %>"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="brandTextField">Brand</label>
+                    <input type="text" class="form-control"
+                        id="brandTextField"
+                        placeholder="Enter a brand"
+                        name="brand" 
+                        value="<%= item.brand %>"
+                        >
+                </div>
+                <br />
+               
+                <div class="form-group">
+                    <label for="PriceTextField">Year</label>
+                    <input type="number" class="form-control"
+                        id="PriceTextField"
+                        placeholder="999.99"
+                        name="price" 
+                        value="<%= item.price %>"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="CategoryTextField">Category</label>
+                    <input type="text"
+                    class="form-control"
+                    id="CategoryTextField"
+                    placeholder="Enter the category"
+                    name="category" 
+                    value="<%= item.category %>"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ConditionTextField">Condition</label>
+                    <input type="text"
+                    class="form-control"
+                    id="conditionTextField"
+                    placeholder="Enter the condition"
+                    name="condition" 
+                    value="<%= item.condition %>"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ExpiryDateTextField">Seats</label>
+                    <input type="date"
+                    class="form-control"
+                    id="expirydateTextField"
+                    placeholder="5"
+                    name="expirydate" 
+                    value="<%= item.expirydate %>"
+                    required>
+                </div>
+
+                
+
+                
+                <br/>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> 
+                    Submit
+                </button>
+                
+                <a href="/cars/list" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> 
+                    Cancel
+                </a>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<%- include ../partials/footer.ejs %>
