@@ -1,0 +1,99 @@
+
+.infoTitle{
+    font-family: 'Poppins', sans-serif;  
+    font-size: 3.5rem;  
+    line-height: 1.5;  
+    font-weight: 900;
+    color: azure;
+}
+
+.container-fluid{
+    padding: 3% 15% 10%;
+}
+
+.title-image{
+    height: 390px !important;
+}
+
+#title{
+    background-color: cornflowerblue;
+}
+
+.navbar{
+    font-family: 'Poppins', sans-serif;
+    padding: 0 0 4.5rem;
+
+}
+
+.navbar-nav{
+    font-weight: 100;
+}
+
+.navbar-brand{
+    font-size: 2.5rem;
+    color: azure;
+    font-weight: bold;
+}
+
+.nav-item{
+    padding: 0 18px;
+}
+
+.nav-link{
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;;
+    font-weight: 400;
+}
+
+.card{
+    margin-left: 22%;
+    margin-bottom: 5%;
+    width: 21rem !important;
+}
+
+.testimonials-title{
+    text-align: center;
+    margin-bottom: 10%;
+    font-weight: 900;
+    color: cornflowerblue;
+    font-size: 3.5rem;
+}
+#cta{
+    background-color: cornflowerblue;
+    text-align: center;
+    padding-top: 5%;
+    
+}
+
+#cta>h3{
+    color: white;
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 1,5rem;
+}
+
+#footer{
+    text-align: center;
+    padding-top: 2.5%;
+    background-color: white;
+}
+
+#footer>i{
+    padding: 0.5%;
+}
+
+i{
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar-dark .navbar-nav .nav-link {
+        color: rgba(255,255,255,.55);
+        font-size: 10rem;
+      }
+      .card{
+        margin-left: 30%;
+        margin-bottom: 5%;
+        width: 100rem !important;
+    }
+}
