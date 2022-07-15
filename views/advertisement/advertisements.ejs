@@ -1,68 +1,75 @@
 <%- include ../partials/header.ejs %>
+    <%- include ../partials/navbar.ejs %>
 
-<%- include ../partials/navbar.ejs %>
+        <div class="container">
+            <div class="row">
+                <div class="col-md">
 
-    <div class="container-fluid">
-        <div>
-            <a href="/advertisement/add" class="btn btn-primary align-self-end" role="button">
-                <i class="fas fa-plus-circle"></i> Add a New Advertisement
-            </a>
-        </div>
-        <br>
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover">
-                <!-- Header Row-->
-                <tr>
-                    <th class="text-center">Product Name</th>
-                    <th class="text-center">Brand</th>
-                    <th class="text-center">Price</th>
-                    <th class="text-center">Category</th>
-                    <th class="text-center">Condition</th>
-                    <!-- <th class="text-center">Expiry Date</th> -->
-
-                    <th class="text-center" colspan="3">Actions</th>
-                </tr>
-
-                <!-- Repeatable Template Row -->
-                <% console.log(AdvertisementList) %>
-                <% for(let i = 0; i < AdvertisementList.length; i++) { %>
-                    <tr>
-                        <td class="text-center">
-                            <%= AdvertisementList[i].ProductName %>
-                        </td>
-                        <td class="text-center">
-                            <%= AdvertisementList[i].Brand %>
-                        </td>
-                        <td class="text-center">
-                            <%= AdvertisementList[i].Price %>
-                        </td>
-                        <td class="text-center">
-                            <%= AdvertisementList[i].Category %>
-                        </td>
-                        <td class="text-center">
-                            <%= AdvertisementList[i].Condition %>
-                        </td>
-                        <!-- <td class="text-center">
-                            <%= AdvertisementList[i].lifetime %>
-                        </td> -->
-
-                        </td>
-                        </td>
-                        <td class="text-center">
-                            <a href="/advertisement/add_edit/<%= AdvertisementList[i]._id %>" class="btn btn-success btn-sm">
-                                <i class="fas fa-info"></i> </a>
-                        </td>
-
-                        <td class="text-center">
-                            <a href="/advertisement/delete/<%= AdvertisementList[i]._id %>" class="btn btn-success btn-sm">
-                                <i class="fas fa-info"></i> </a>
-                        </td>
-                    </tr>
-                    <% } %>
-            </table>
+                </div>
+            </div>
+            <br>
+            <div>
+                <a href="/advertisement/add" class="btn btn-primary align-self-end" role="button">
+                    <i class="fas fa-plus-circle"></i> Add a new Product
+                </a>
 
             </div>
+            <br>
+            <div class="mt-2">
+                <h4 class="text-uppercase">Product List</h4>
+                <div class="mt-5">
+                    <% for(let i = 0; i < AdvertisementList.length; i++) { %>
+                        <h5 class="text-uppercase mb-0">
+                            <%= AdvertisementList[i].Brand %>
+                        </h5>
+                        <h1 class="main-heading mt-0">
+                            <%= AdvertisementList[i].ProductName %>
+                        </h1>
+                        <div class="d-flex flex-row user-ratings">
+                            <div class="ratings">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <h6 class="text-muted ml-1">
+                                $
+                                <%= AdvertisementList[i].Price %>
+                            </h6>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-2 mb-2">
+                            <span>Category:
+                                <%= AdvertisementList[i].Category %></span>
+                            <br><span>Condition:
+                                <%= AdvertisementList[i].Condition %></span>
+                            <!-- <br><span>Expiry Date:
+                                <%= AdvertisementList[i].lifetime %></span> -->
+
+
+                        </div>
+                        <button class="btn btn-danger">Add to cart</button>
+                        <br>
+                        <a href="/advertisement/add_edit/<%= AdvertisementList[i]._id %>" class="btn btn-danger">
+                            <i class="btn btn-danger"></i>Edit</a>
+
+                        <a href="/advertisement/delete/<%= AdvertisementList[i]._id %>" class="btn btn-danger">
+                            <i class="btn btn-danger"></i>Delete</a>
+                        </td>
+                        <% } %>
+                </div>
+            </div>
+            <!-- <div class="image"> -->
+            <img src="https://i.imgur.com/MGorDUi.png" width="200">
+        </div> -->
+        </div>
+
+
+        </div>
+
+        </div>
+        =======
         <%- include ../partials/footer.ejs %>
-    </div>
-    </body>
-</html>
+            </body>
+
+            </html>
+            >>>>>>> 97e74f8bbe03dc9ea6ecb9ccf8e3dcc80bd11881:views/advertisement/advertisements.ejs
