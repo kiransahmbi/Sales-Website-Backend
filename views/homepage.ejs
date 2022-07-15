@@ -1,60 +1,58 @@
 <%- include ./partials/header -%>
 
-    <section id="title">
-        <div class="container-fluid">
+<%- include ./partials/navbar -%>  
 
-            <%- include ./partials/navbar -%>  
-            
+    <div class="homepage-container">
+    <section id="title">
+        <div class="container-fluid pb-5">
+
             <!-- Information Section -->
             <div class="row">
                 <div class="col-lg-6 col-md-12">
-                    <h1 class="infoTitle">Buy with confidence! Satisfaction Guaranteed!</h1>
-                    <button type="button" class="btn btn-dark btn-lg download-button">
-                        <i class="bi bi-apple"></i> Download
-                    </button>
-                    <button type="button" class="btn btn-outline-light btn-lg download-button">
-                        <i class="bi bi-google"></i> Download
-                    </button>
+                    <h1 class="infoTitle">Buy with confidence! Satisfaction guaranteed!</h1>
+                    <a href="/advertisement/list">
+                        <button type="button" class="btn btn-light btn-lg products-button">
+                            <i class="bi bi-bag"></i> View Products!
+                        </button>
+                    </a>
                 </div>
                 <div class="col-lg-6 col-md-12">
-                    <img class="title-image" src="../images/shoes.png" alt="nike-shoes" style="height: 350px; " />
+                    <img class="title-image" src="../images/shoes.png" alt="nike-shoes" />
                 </div>
             </div>
         </div>
     </section>
+
     <section id="testimonials">
         <div class="container-fluid">
             <h1 class="testimonials-title">Testimonials</h1>
             <div class="row">
                 <div class="col-sm-12 col-lg-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <!-- copyright : https://www.vecteezy.com/photo/3492377-closeup-male-studio-portrait-of-happy-man-looking-at-the-camera-image -->
                         <img class="card-img-top" src="../images/boy.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">My Favorite Website!</h5>
                             <p class="card-text">I bought my engagement ring here and I got married!</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-lg-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <!-- copyrigth: https://www.vecteezy.com/photo/3491890-closeup-face-portrait-of-pretty-blonde-girl-with-fresh-skin-horizontal-image -->
                         <img class="card-img-top" src="../images/girl.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">This is way better than Amazon!</h5>
                             <p class="card-text">With free shipping I received my item in less than 36 hours!</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-lg-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../images/sun.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Best fashion sellers in the market!</h5>
-                            <p class="card-text">I can imagine how many vintage and stylish clothes I am able to find here!</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="card-text">I can't believe how many vintage and stylish clothes I found here!</p>
                         </div>
                     </div>
                 </div>
@@ -63,21 +61,8 @@
     </section>
 
     <!-- Call to Action -->
-    <section id="cta">
+    <section id="bottom-banner">
         <h3>We have exactly what you are looking for!</h3>
-        <button type="button" class="btn btn-dark btn-lg download-button">
-            <i class="bi bi-apple"></i> Download
-        </button>
-        <button
-            type="button"
-            class="btn btn-outline-light btn-lg download-button">
-            <i class="bi bi-google"></i> Download
-        </button>
-        <br><br>
-        <br><br>
     </section>
-
-    <%- include ./partials/footer -%>  
-      
-</body>
-</html>
+</div> 
+<%- include ./partials/footer -%>  

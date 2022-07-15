@@ -1,28 +1,41 @@
-
-.infoTitle{
-    font-family: 'Poppins', sans-serif;  
-    font-size: 3.5rem;  
-    line-height: 1.5;  
-    font-weight: 900;
-    color: azure;
+/* LANDING PAGE */
+homepage-container {
+    width: 95%;
+    margin: 0 auto;
+    background-color: cornflowerblue
 }
 
 .container-fluid{
-    padding: 3% 15% 10%;
+    padding: 3% 10%;
 }
 
-.title-image{
-    height: 390px !important;
-}
-
-#title{
+/* TITLE SECTION */
+#title {
     background-color: cornflowerblue;
 }
 
+.infoTitle{
+    font-family: 'Poppins', sans-serif;  
+    font-size: 2.2rem;  
+    line-height: 1.5;  
+    font-weight: 900;
+    color: azure;
+    margin: 8% 1%
+}
+
+.title-image {
+    width: 100% !important;
+    border-radius: 8px;
+}
+
+.products-button {
+    margin: 0% 0% 0% 25%;
+}
+
+/* NAVIGATION BAR */
 .navbar{
     font-family: 'Poppins', sans-serif;
-    padding: 0 0 4.5rem;
-
+    padding: 2% 5%;
 }
 
 .navbar-nav{
@@ -45,36 +58,42 @@
     font-weight: 400;
 }
 
-.card{
-    margin-left: 22%;
-    margin-bottom: 5%;
+/* TESTIMONIALS */
+.card {
+    margin: 0% auto 5%;
     width: 21rem !important;
 }
 
 .testimonials-title{
     text-align: center;
-    margin-bottom: 10%;
+    margin-bottom: 4%;
     font-weight: 900;
     color: cornflowerblue;
     font-size: 3.5rem;
 }
-#cta{
+
+.card-img-top {
+    width: 100%;
+}
+
+/* FOOTER */
+#bottom-banner {
     background-color: cornflowerblue;
     text-align: center;
-    padding-top: 5%;
+    padding: 1% 0%;
     
 }
 
-#cta>h3{
+#bottom-banner>h3{
     color: white;
     font-family: "Poppins";
     font-weight: bold;
     font-size: 1,5rem;
 }
 
-#footer{
+#footer {
     text-align: center;
-    padding-top: 2.5%;
+    padding: 1%;
     background-color: white;
 }
 
@@ -82,7 +101,8 @@
     padding: 0.5%;
 }
 
-i{
+/*  */
+i {
     cursor: pointer;
 }
 
@@ -97,3 +117,4 @@ i{
         width: 100rem !important;
     }
 }
+
