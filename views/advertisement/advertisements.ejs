@@ -1,6 +1,7 @@
+<!-- Code By Ahnaf Tahmid -->
 <html>
 
-<body style="background-color:rgba(243, 233, 233, 0.795) ;">
+<body style="background-color:rgba(205, 215, 247, 0.945) ;">
     <%- include ../partials/header.ejs %>
 
         <%- include ../partials/navbar.ejs %>
@@ -10,70 +11,115 @@
 
                 <div class="row">
                     <div class="col-md">
+                        <!doctype html>
+                        <html lang="en">
 
-                    </div>
-                </div>
-                <br>
-                <div>
 
-                    <a href="/advertisement/add" class="btn btn-primary align-self-end" role="button">
-                        <i class="fas fa-plus-circle"></i> Add a new Product
-                    </a>
+                        <head>
 
-                </div>
-                <br>
-                <div class="card" style="width: 18rem ; background-color:rgba(236, 213, 213, 0.795) ;">
-                    <div class="mt-2">
-                        <h4 class="text-uppercase">Product List</h4>
-                        <div class="mt-5">
-                            <% for(let i = 0; i < AdvertisementList.length; i++) { %>
-                                <h5 class="text-uppercase mb-0">
-                                    <%= AdvertisementList[i].Brand %>
-                                </h5>
-                                <h1 class="main-heading mt-0">
-                                    <%= AdvertisementList[i].ProductName %>
-                                </h1>
-                                <div class="d-flex flex-row user-ratings">
-                                    <div class="ratings">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                            <meta charset="utf-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                            <meta name="description" content="">
+                            <meta name="author" content="">
+                            <!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> -->
+                            <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+
+                            <!-- Bootstrap core CSS -->
+                            <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+                            <!-- Custom styles for this template -->
+                            <link href="/public/stylesheets/list.css" rel="stylesheet">
+                        </head>
+
+                        <body>
+
+
+                            <main role="main">
+
+                                <section class="jumbotron text-center">
+                                    <div class="container">
+                                        <h1 class="jumbotron-heading">Place a Listing!</h1>
+                                        <p class="lead text-muted">You can add a new product by clicking the button below. Your added products can be modified or deleted as well by clicking the Edit and Delete buttons respectively.</p>
+                                        <p>
+                                            <a href="/advertisement/add" class="btn btn-primary my-2">Add a new Product</a>
+
+                                        </p>
                                     </div>
-                                    <h6 class="text-muted ml-1">
-                                        $
-                                        <%= AdvertisementList[i].Price %>
-                                    </h6>
-                                </div>
-                                <!-- <div class="d-flex justify-content-between align-items-center mt-2 mb-2"> -->
-                                <span>Category:
-                                <%= AdvertisementList[i].Category %></span>
-                                <br><span>Condition:
-                                <%= AdvertisementList[i].Condition %></span>
-                                <!-- <br><span>Expiry Date:
-                                <%= AdvertisementList[i].lifetime %></span> -->
+                                </section>
+
+                                <div class="album py-5 bg-light">
 
 
-                        </div>
-                        <!-- <button class="btn btn-danger">Add to cart</button> -->
-                        <br>
-                        <div>
-                            <a href="/advertisement/edit/<%= AdvertisementList[i]._id %>" class="btn btn-danger">
-                                <i class="btn btn-danger"></i>Edit</a>
+                                    <div class="container">
+                                        <% for(let i = 0; i < AdvertisementList.length; i++) { %>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="card mb-4 box-shadow">
+                                                        <div class="card-body">
+                                                            <p class="card-text">
 
-                            <a href="/advertisement/delete/<%= AdvertisementList[i]._id %>" class="btn btn-danger">
-                                <i class="btn btn-danger"></i>Delete</a>
+                                                                Product Name:
+                                                                <%= AdvertisementList[i].ProductName %>
+                                                                    <br>Brand:
+                                                                    <%= AdvertisementList[i].Brand %>
+                                                                        <br>Category:
+                                                                        <%= AdvertisementList[i].Category %>
+                                                                            <br>Condition:
+                                                                            <%= AdvertisementList[i].Condition %>
+                                                                                <br>
+                                                                                <%= AdvertisementList[i].Lifetime %>
 
-                            <% } %>
+
+                                                                                    <div class="d-flex justify-content-between align-items-center">
+                                                                                        <div class="btn-group">
+                                                                                            <a href="/advertisement/edit/<%= AdvertisementList[i]._id %>" class="btn btn-danger">
+                                                                                                <i class="btn btn-danger"></i>Edit</a>
+                                                                                            <a href="/advertisement/delete/<%= AdvertisementList[i]._id %>" class="btn btn-danger">
+                                                                                                <i class="btn btn-danger"></i>Delete</a>
+
+                                                                                        </div>
+
+                                                                                        <small class="text-muted">9 mins ago</small>
+                                                                                    </div>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                    </div>
+
+
+                            </main>
+
+                            <!-- <footer class="text-muted">
+                                <div class="container">
+                                    <p class="float-right">
+                                        <a href="#">Back to top</a>
+                                    </p> -->
+
+
+                            <!-- Bootstrap core JavaScript
+                            ================================================== -->
+                            <!-- Placed at the end of the document so the pages load faster -->
+                            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                            <script>
+                                window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+                            </script>
+                            <script src="../../assets/js/vendor/popper.min.js"></script>
+                            <script src="../../dist/js/bootstrap.min.js"></script>
+                            <script src="../../assets/js/vendor/holder.min.js"></script>
+                        </body>
+
+                        </html>
+
                         </div>
                     </div>
-                    <!-- <div class="image"> -->
-                    <!-- <img src="https://i.imgur.com/MGorDUi.png" width="200"> -->
+                    <br>
+                    <div>
+                    </div>
                 </div>
-            </div>
-
-
-            </div>
 </body>
 
 </html>
