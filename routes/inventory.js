@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let inventoryController = require('../controllers/inventory');
+let inventoryController = require('../controller/inventory');
 
 
 function requireAuth(req, res, next)
@@ -20,17 +20,17 @@ router.get('/list',requireAuth, inventoryController.inventoryList);
 
 
 // Routers for edit
-//router.get('/edit/:id',requireAuth, inventoryController.displayEditPage);
-//router.put('/edit/:id',requireAuth, inventoryController.processEditPage);
+router.get('/edit/:id',requireAuth, inventoryController.displayEditPage);
+router.post('/edit/:id',requireAuth, inventoryController.processEditPage);
 
 // Router for delete
-//router.get('/delete/:id', inventoryController.performDelete);
+router.get('/delete/:id',requireAuth, inventoryController.performDelete);
 
 /* GET Route for displaying the Add page - CREATE Operation */
-//router.get('/add',requireAuth, inventoryController.displayAddPage);
+router.get('/add',requireAuth, inventoryController.displayAddPage);
 
 /* POST Route for processing the Add page - CREATE Operation */
-//router.post('/add', inventoryController.processAdd);
+router.post('/add',requireAuth, inventoryController.processAddPage);
 
 
 

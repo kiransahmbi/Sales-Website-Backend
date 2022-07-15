@@ -1,41 +1,23 @@
 {
   "name": "comp",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./server.js"
   },
   "dependencies": {
     "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "ejs": "~2.6.1",
     "express": "~4.16.1",
-  "jsonwebtoken":"^8.5.1",
+    "express-session": "^1.17.3",
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",
     "mongoose": "^6.3.6",
     "morgan": "~1.9.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
-  },
-  "main": "server.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GurleenButtar/COMP.git"
-  },
-  "keywords": [
-    "week6",
-    "week7",
-    "Mean",
-    "backend",
-    "MongoDb",
-    "Mongoose"
-  ],
-  "author": "Gurleen Buttar",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/GurleenButtar/COMP/issues"
-  },
-  "homepage": "https://github.com/GurleenButtar/COMP#readme",
-  "description": ""
+  }
 }
