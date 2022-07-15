@@ -5,52 +5,45 @@ var router = express.Router();
 router.get('/', home);
 
 function home (req, res, next) {
-  res.render('Portfolio',
+  res.render('homepage',
    { 
-     title: 'Home',
-     userName: req.user ? req.user.username : ''
+     title: 'Home'
      });
 };
-router.get('/abtMe', aboutMe);
+router.get('/aboutme', aboutMe);
 
 function aboutMe (req, res, next) {
-  res.render('AboutMe',
+  res.render('aboutme',
    { 
-     title: 'About Me' ,
-     userName: req.user ? req.user.username : ''
+     title: 'About Me'
      });
 };
 
-router.get('/ser', services);
+router.get('/services', services);
 
 function services (req, res, next) {
-  res.render('Services',
+  res.render('services',
    { 
-     title: 'Services' ,
-     userName: req.user ? req.user.username : ''
+     title: 'Services' 
      });
 };
 
 router.get('/projects', projects);
 
 function projects (req, res, next) {
-  res.render('Projects',
+  res.render('projects',
    { 
-     title: 'My Work', // add variables to be inserted//
-     userName: req.user ? req.user.username : ''
+     title: 'My Work'
      });
 };
 
-router.get('/ContactMe', ContactMe);
+router.get('/contactme', ContactMe);
 
 function ContactMe (req, res, next) {
-  res.render('ContactMe',
+  res.render('contactme',
    { 
-     title: 'Lets Connect', // add variables to be inserted//
-     userName: req.user ? req.user.username : ''
+     title: 'Lets Connect'
      });
 };
-
-
 
 module.exports = router;
