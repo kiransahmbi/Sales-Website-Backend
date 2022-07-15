@@ -18,8 +18,8 @@ body {
 }
 
 .main-heading {
-    font-size: 40px;
-    color: red !important;
+    font-size: 30px;
+    color: rgb(123, 143, 233) !important;
 }
 
 .ratings i {
@@ -45,7 +45,7 @@ body {
 }
 
 .colors span:nth-child(1) {
-    background-color: red;
+    background-color: black;
 }
 
 .colors span:nth-child(2) {
@@ -79,7 +79,7 @@ button::after {
     height: 70px;
     font-size: 18px;
     font-family: 'Bebas Neue', cursive;
-    background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
+    background: linear-gradient(45deg, transparent 5%, #dd9cab 5%);
     border: 0;
     color: #fff;
     letter-spacing: 3px;
@@ -103,7 +103,7 @@ button::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+    background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #dd9cab 5%);
     text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
     clip-path: var(--slice-0);
 }
