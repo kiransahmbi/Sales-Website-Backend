@@ -4,67 +4,72 @@
 
     <!-- Content for list page -->
 
-    <body>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md">
+    <main class="container">
+        <div class="row">
+            <h1>
+                <%= title %>
+            </h1>
+            <br>
+            <div>
 
-                    <%- include partials/NavBar -%>
-                </div>
+                <a href="add_edit.ejs" class="btn btn-primary align-self-end" role="button">
+                    <i class="fas fa-plus-circle"></i> Add a new Product
+                </a>
+            </div>
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <!-- Header Row-->
+                    <tr>
+                        <th class="text-center">Product Name</th>
+                        <th class="text-center">Brand</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Category</th>
+                        <th class="text-center">Condition</th>
+                        <th class="text-center">Expiry Date</th>
+
+                        <th class="text-center" colspan="3">Actions</th>
+                    </tr>
+
+                    <!-- Repeatable Template Row -->
+
+                    <% for(let i = 0; i < AdvertisementList.length; i++) { %>
+                        <tr>
+                            <td class="text-center">
+                                <%= AdvertisementList[i].productName %>
+                            </td>
+                            <td class="text-center">
+                                <%= AdvertisementList[i].brand %>
+                            </td>
+                            <td class="text-center">
+                                <%= AdvertisementList[i].price %>
+                            </td>
+                            <td class="text-center">
+                                <%= AdvertisementList[i].category %>
+                            </td>
+                            <td class="text-center">
+                                <%= AdvertisementList[i].condition %>
+                            </td>
+                            <td class="text-center">
+                                <%= AdvertisementList[i].lifetime %>
+                            </td>
+
+                            </td>
+                            </td>
+                            <td class="text-center">
+                                <a href="/advertisement/add_edit/<%= AdvertisementList[i]._id %>" class="btn btn-success btn-sm">
+                                    <i class="fas fa-info"></i> </a>
+                            </td>
+
+                            <td class="text-center">
+                                <a href="/advertisement/delete/<%= AdvertisementList[i]._id %>" class="btn btn-success btn-sm">
+                                    <i class="fas fa-info"></i> </a>
+                            </td>
+                        </tr>
+                        <% } %>
+                </table>
             </div>
         </div>
-        <br>
-        <div>
-            <a href="/inventory/add" class="btn btn-primary align-self-end" role="button">
-                <i class="fas fa-plus-circle"></i> Add a new Item
-            </a>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover">
-                <!-- Header Row-->
-                <tr>
-                    <th class="text-center">Product Name</th>
-                    <th class="text-center">Brand</th>
-                    <th class="text-center">Price</th>
-                    <th class="text-center">Category</th>
-                    <th class="text-center">condition</th>
-                    <th class="text-center">Expiry Date</th>
+    </main>
 
-
-                    <!-- <th class="text-center" colspan="2">Actions</th> -->
-                </tr>
-
-                <!-- Repeatable Template Row -->
-
-                <% for(let i = 0; i < InventoryList.length; i++) { %>
-                    <tr>
-                        <td class="text-center">
-                            <%= InventoryList[i].Name %>
-                        </td>
-                        <td class="text-center">
-                            <%= InventoryList[i].ContactNumber %>
-                        </td>
-                        <td class="text-center">
-                            <%= InventoryList[i].EmailAddress %>
-                        </td>
-
-                        <td class="text-center">
-                            <%= InventoryList[i].tags %>
-                        </td>
-                        <td class="text-center">
-                            <a href="/inventory/edit/<%= InventoryList[i]._id %>" class="btn btn-primary btn-sm">
-                                <i class="fas fa-pencil-alt"></i></a>
-                        </td>
-                        <td class="text-center">
-                            <a href="/inventory/delete/<%= InventoryList[i]._id %>" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash-alt"></i></a>
-                        </td>
-                    </tr>
-                    <% } %>
-            </table>
-        </div>
-        <%- include partials/Footer -%>
-    </body>
-
-
-    </html>
+    <%- include ../partials/footer.ejs %>
