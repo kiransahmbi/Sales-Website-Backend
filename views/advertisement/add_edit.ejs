@@ -1,78 +1,93 @@
-<!-- Name:Gurleen Buttar
-Student Number: 301212754
-COMP 229
-Section: 003 -->
-<!DOCTYPE html>
-<html>
-  <%- include ../partials/header -%> 
-  
+<%- include ../partials/header.ejs %>
 
-  <body>   
-    <div class="container-fluid">
-      <div class="row-6">
-        <div class="col-md">
-      
-          <%- include ../partials/navbar -%>        
-          </div>
-          </div>  
-        </div>
-        <br>
-        
-        <div class="row">
-            <div class="col-md-3">
-            </div>
-            <div class="col-md-6">
-        <form class="form" method="POST">
-           
-            <div class="form-group">
-                <input type="hidden"
+<!-- Content for the Add_Edit page -->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1><%= title %></h1>
+
+            <form class="form" method="POST">
+                <div class="form-group">
+                    <input type="hidden"
                         name="id"
                         value="<%= item._id %>"
                     >
-                <label for="QtyTextField">Contact Name</label>
-                <input type="string" class="form-control"
-                id="NameTextField"
-                placeholder="Name"
-                name="Name" 
-                value="<%= item.Name %>"
-                required>
-            </div>
-            <div class="form-group">
-                <label for="QtyTextField">Phone Number</label>
-                <input type="number" class="form-control"
-                id="NumberTextField"
-                placeholder="Number"
-                name="Number" 
-                value="<%= item.ContactNumber %>"
-                required>
-            </div>
-            <div class="form-group">
-                <label for="QtyTextField">Email Address</label>
-                <input type="string" class="form-control"
-                id="EmailTextField"
-                placeholder="Email"
-                name="Email" 
-                value="<%= item.EmailAddress %>"
-                required>
-            </div>
-            
-            <br/>
+                    <label for="productNameTextField">Product Name</label>
+                    <input type="text" class="form-control"
+                        id="productNameTextField"
+                        placeholder="Enter the Product Name"
+                        name="productName" 
+                        value="<%= item.productName %>"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="brandTextField">Brand</label>
+                    <input type="text" class="form-control"
+                        id="brandTextField"
+                        placeholder="Enter a brand"
+                        name="brand" 
+                        value="<%= item.brand %>"
+                        >
+                </div>
+                <br />
+               
+                <div class="form-group">
+                    <label for="PriceTextField">Year</label>
+                    <input type="number" class="form-control"
+                        id="PriceTextField"
+                        placeholder="999.99"
+                        name="price" 
+                        value="<%= item.price %>"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="CategoryTextField">Category</label>
+                    <input type="text"
+                    class="form-control"
+                    id="CategoryTextField"
+                    placeholder="Enter the category"
+                    name="category" 
+                    value="<%= item.category %>"
+                    required>
+                </div>
 
-            <button class="btn btn-primary" type="submit">
-                <i class="fas fa-edit"></i> 
-                Submit
-            </button>
-            
-            <a href="/list" class="btn btn-warning">
-                <i class="fas fa-undo"></i> 
-                Cancel
-            </a>
+                <div class="form-group">
+                    <label for="ConditionTextField">Condition</label>
+                    <input type="text"
+                    class="form-control"
+                    id="conditionTextField"
+                    placeholder="Enter the condition"
+                    name="condition" 
+                    value="<%= item.condition %>"
+                    required>
+                </div>
 
-        </form>
+                <div class="form-group">
+                    <label for="ExpiryDateTextField">Seats</label>
+                    <input type="date"
+                    class="form-control"
+                    id="expirydateTextField"
+                    placeholder="5"
+                    name="expirydate" 
+                    value="<%= item.expirydate %>"
+                    required>
+                </div>
+                
+                <br/>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> 
+                    Submit
+                </button>
+                
+                <a href="/cars/list" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> 
+                    Cancel
+                </a>
+
+            </form>
+        </div>
+
     </div>
 </div>
-          
-        </body>
-        <%- include ../partials/footer -%> 
 
-</html>
+<%- include ../partials/footer.ejs %>
