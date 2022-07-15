@@ -11,7 +11,7 @@
             <!-- ------------------------ -->
             <a href="#" class="btn btn-primary align-self-end" role="button">
                 <i class="fas fa-plus-circle"></i> 
-                Add a new Car
+                Add a new advertisement
             </a>                
         </div>
         <br>
@@ -19,38 +19,36 @@
             <table class="table table-bordered table-striped table-hover">
                 <!-- Header Row-->
                 <tr>
-                    <th class="text-center">Make</th>
-                    <th class="text-center">Model</th>
-                    <th class="text-center">Year</th>
-                    <th class="text-center">kilometers</th>
-                    <th class="text-center">Doors</th>
-                    <th class="text-center">Seats</th>
-                    <th class="text-center">Color</th>
+                    <th class="text-center">ProductName</th>
+                    <th class="text-center">Brand</th>
                     <th class="text-center">Price</th>
+                    <th class="text-center">Category</th>
+                    <th class="text-center">Condition</th>
+                    <th class="text-center">ExpiryDate</th>
+                    
                     <th class="text-center" colspan="3">Actions</th>
                 </tr>
 
                 <!-- Repeatable Template Row -->
 
-                <% for(let i = 0; i < CarsList.length; i++) { %>
+                <% for(let i = 0; i < AdvertisementList.length; i++) { %>
                     <tr>
-                        <td class="text-center"><%= CarsList[i].make %></td>
-                        <td class="text-center"><%= CarsList[i].model %></td>
-                        <td class="text-center"><%= CarsList[i].year %></td>
-                        <td class="text-center"><%= CarsList[i].kilometers %></td>
-                        <td class="text-center"><%= CarsList[i].doors %></td>
-                        <td class="text-center"><%= CarsList[i].seats %></td>
-                        <td class="text-center"><%= CarsList[i].color %></td>
-                        <td class="text-center"><%= CarsList[i].price %></td>                        
+                        <td class="text-center"><%= AdvertisementList[i].productName %></td>
+                        <td class="text-center"><%= AdvertisementList[i].brand %></td>
+                        <td class="text-center"><%= AdvertisementList[i].price %></td>
+                        <td class="text-center"><%= AdvertisementList[i].category %></td>
+                        <td class="text-center"><%= AdvertisementList[i].condition %></td>
+                        <td class="text-center"><%= AdvertisementList[i].expirydate %></td>
+                                         
                         <td class="text-center">
-                            <a href="/cars/details/<%= CarsList[i]._id %>" class="btn btn-success btn-sm"> 
+                            <a href="/advertisement/details/<%= AdvertisementList[i]._id %>" class="btn btn-success btn-sm"> 
                             <i class="fas fa-info"></i> </a>
                         </td>
                         <td class="text-center">
                             <!-- ------------------------- -->
                             <!-- Fix the EDIT button below -->
                             <!-- ------------------------- -->
-                            <a href="/cars/edit/<%= CarsList[i]._id %>" class="btn btn-primary btn-sm">
+                            <a href="/advertisement/edit/<%= AdvertisementList[i]._id %>" class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i></a>
                             <!--<a href="#" class="btn btn-primary btn-sm">
                             <i class="fas fa-pencil-alt"></i></a>-->
@@ -59,7 +57,7 @@
                             <!-- --------------------------- -->
                             <!-- Fix the DELETE button below -->
                             <!-- --------------------------- -->
-                            <a href="/cars/delete/<%= CarsList[i]._id %>" class="btn btn-danger btn-sm">
+                            <a href="/advertisement/delete/<%= AdvertisementList[i]._id %>" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash-alt"></i></a>
                             <!--<a href="#" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i></a>-->
