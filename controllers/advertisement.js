@@ -73,7 +73,7 @@ module.exports.processEditPage = (req, res, next) => {
 
         console.log(updatedItem);
 
-        AdvertismentModel.updateOne({ _id: id }, updatedItem, (err) => {
+        AdvertisementModel.updateOne({ _id: id }, updatedItem, (err) => {
             if (err) {
                 console.log(err);
                 res.end(err);
