@@ -17,7 +17,6 @@ function getErrorMessage(err) {
 module.exports.advertisementList = function(req, res, next) {
     try {
         AdvertisementModel.find((err, advertisementList) => {
-            console.log(advertisementList);
             if (err) {
                 console.error(err);
                 return res.status(400).json({
@@ -47,7 +46,7 @@ module.exports.displayDetails = (req, res, next) => {
             console.log(err);
             res.end(err);
         } else {
-            res.render('./advertisement/details', {
+            res.render('advertisement/details', {
                 title: 'Details',
                 advertisement: details
             })
@@ -64,8 +63,8 @@ module.exports.displayEditPage = (req, res, next) => {
             console.log(err);
             res.end(err);
         } else {
-            res.render('./advertisement/add_edit', {
-                title: 'Edit Item',
+            res.render('advertisement/add_edit', {
+                title: 'Edit Advertisement',
                 item: itemToEdit
             })
         }
@@ -77,16 +76,23 @@ module.exports.processEditPage = (req, res, next) => {
         let id = req.params.id
 
         let updatedItem = AdvertisementModel({
-            _id: req.body.id,
-            ProductName: req.body.productName,
-            Brand: req.body.brand,
-            Price: req.body.price,
-            Category: req.body.category,
-            Condition: req.body.condition,
-            DateEnabled: req.body.dateEnabled,
-            Lifetime: req.body.lifetime,
-            Imagelink: req.body.Imagelink
+            _id: id,
+            ProductName: req.body.ProductName,
+            Brand: req.body.Brand,
+            Description: req.body.Description,
+            Price: req.body.Price,
+            Category: req.body.Category,
+            Condition: req.body.Condition,
+            ImageLink: req.body.ImageLink
         });
+
+        if (req.body.DateEnabled) {
+            updatedItem.DateEnabled = req.body.DateEnabled;
+        }
+
+        if (req.body.Lifetime) {
+            updatedItem.Lifetime = req.body.Lifetime;
+        }
 
         console.log(updatedItem);
 
@@ -95,7 +101,6 @@ module.exports.processEditPage = (req, res, next) => {
                 console.log(err);
                 res.end(err);
             } else {
-                console.log(req.body);
                 //refresh advertisements
                 res.redirect('/advertisement/list');
             }
@@ -135,23 +140,33 @@ module.exports.displayAddPage = (req, res, next) => {
     let newItem = AdvertisementModel();
 
     res.render('advertisement/add_edit', {
-        title: 'Add a New Advertisement',
+        title: 'Add a Advertisement',
         item: newItem
     });
 }
 
 module.exports.processAddPage = (req, res, next) => {
+    console.log(req.body);
     try {
         let newItem = AdvertisementModel({
             _id: req.body.id,
-            ProductName: req.body.productName,
-            Brand: req.body.brand,
-            Price: req.body.price,
-            Category: req.body.category,
-            Condition: req.body.condition,
-            DateEnabled: req.body.dateEnabled,
-            Lifetime: req.body.lifetime
+            ProductName: req.body.ProductName,
+            Brand: req.body.Brand,
+            Description: req.body.Description,
+            Price: req.body.Price,
+            Category: req.body.Category,
+            Lifetime: req.body.Lifetime,
+            Condition: req.body.Condition,
+            ImageLink: req.body.ImageLink
         });
+
+        if (req.body.DateEnabled) {
+            newItem.DateEnabled = req.body.DateEnabled;
+        }
+
+        if (req.body.Lifetime) {
+            //newItem.Lifetime = req.body.Lifetime;
+        }
 
         AdvertisementModel.create(newItem, (err, item) => {
             if (err) {

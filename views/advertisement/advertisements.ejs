@@ -15,8 +15,8 @@
                 <% for(let i = 0; i < AdvertisementList.length; i++) { %>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                        <div class="card-header"><i><%= AdvertisementList[i].Brand %></i> <%= AdvertisementList[i].ProductName %></div>
-                        <a href="/advertisement/details/<%= AdvertisementList[i]._id %>"><img class="card-img-top" src="<%= AdvertisementList[i].Imagelink %>"></a>
+                        <div class="card-header"><b><%= AdvertisementList[i].Brand %></b> <%= AdvertisementList[i].ProductName %></div>
+                        <a href="/advertisement/details/<%= AdvertisementList[i]._id %>"><img class="card-img-top" src="<%= AdvertisementList[i].ImageLink %>"></a>
                         <div class="card-body">
                             <p class="card-text">
                                 <%= AdvertisementList[i].Description %>

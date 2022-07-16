@@ -76,6 +76,8 @@ homepage-container {
 
 .card-img-top {
     width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /* FOOTER */

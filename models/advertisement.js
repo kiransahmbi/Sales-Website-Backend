@@ -12,19 +12,15 @@ let advertisementModel = mongoose.Schema(
         Condition: String,
         DateEnabled: {
             type: Date,
-            default: "$currentDate"
+            default: Date.now
         },
         Lifetime: {
             type: Date,
-            default: {
-                $dateAdd: {
-                    startDate: "$currentDate",
-                    unit: "month",
-                    amount: 1
-                    }
+            default: () => {
+                return new Date(new Date().setMonth(new Date().getMonth() + 1))
             }
-        }  ,
-        Imagelink: String 
+        },
+        ImageLink: String 
     },
     {
         collection: "advertisements"
