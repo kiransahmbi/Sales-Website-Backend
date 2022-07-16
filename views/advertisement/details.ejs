@@ -3,37 +3,37 @@
 <!-- Content for the Details page -->
 <div class="container">
     <div class="row">
-        <div class="offset-md-3 col-md-6">
+        <div class="md-3 col-md-6">
             <h1><%= title %></h1>
 
                 <div class="form-group">
                     <label for="productNameTextField">Product Name:</label>
-                    <strong><%= advertisement.productName %></strong>
+                    <strong><%= advertisement.ProductName %></strong>
                 </div>
                 <div class="form-group">
                     <label for="brandTextField">Brand:</label>
-                    <strong><%= advertisement.brand %></strong>
+                    <strong><%= advertisement.Brand %></strong>
                 </div>
                 <div class="form-group">
                     <label for="priceTextField">Price:</label>
-                    <strong><%= advertisement.price %></strong>                    
+                    <strong><%= advertisement.Price %></strong>                    
                 </div>
                 <div class="form-group">
                     <label for="categoryTextField">Category:</label>
-                    <strong><%= advertisement.category %></strong>
+                    <strong><%= advertisement.Category %></strong>
                 </div>
                 
                 <div class="form-group">
                     <label for="conditionTextField">Condition:</label>
-                    <strong><%= advertisement.condition %></strong>                    
+                    <strong><%= advertisement.Condition %></strong>                    
                 </div>
                 <div class="form-group">
                     <label for="dateEnabledTextField">Date Enabled:</label>
-                    <strong><%= advertisement.dateenabled %></strong>                    
+                    <strong><%= advertisement.Dateenabled %></strong>                    
                 </div>
                 <div class="form-group">
                     <label for="lifeTimeTextField">Life Time:</label>
-                    <strong><%= advertisement.lifetime %></strong>                    
+                    <strong><%= advertisement.Lifetime %></strong>                    
                 </div>
                 
                 <br />
@@ -44,6 +44,9 @@
                 </a>
 
             </form>
+        </div>
+        <div class="md-3 col-md-6">
+            <img class="card-img-top" src="<%= advertisement.Imagelink %>">
         </div>
 
     </div>

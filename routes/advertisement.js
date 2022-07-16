@@ -9,6 +9,8 @@ router.get('/list', advertisementController.advertisementList);
 // Add Router
 router.get('/add', advertisementController.displayAddPage);
 router.post('/add', advertisementController.processAddPage);
+//Detail Router
+router.get('/details/:id', advertisementController.displayDetails);
 
 // Edit Router
 router.get('/edit/:id', advertisementController.displayEditPage);
