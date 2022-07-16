@@ -1,5 +1,6 @@
 // Create a reference to the model
 let AdvertisementModel = require('../models/advertisement');
+let QuestionModel = require('../models/questionAnswer');
 
 function getErrorMessage(err) {
     if (err.errors) {
@@ -46,9 +47,12 @@ module.exports.displayDetails = (req, res, next) => {
             console.log(err);
             res.end(err);
         } else {
-            res.render('advertisement/details', {
-                title: 'Details',
-                advertisement: details
+            QuestionModel.find((err, questionModel) => {
+                res.render('advertisement/details', {
+                    title: 'Details',
+                    advertisement: details,
+                    QuestionModel: questionModel
+                })
             })
         }
     });
