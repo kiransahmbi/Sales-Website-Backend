@@ -15,15 +15,24 @@
                 <% for(let i = 0; i < AdvertisementList.length; i++) { %>
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                        <div class="card-header"><b><%= AdvertisementList[i].Brand %></b> <%= AdvertisementList[i].ProductName %></div>
+                        <div class="card-header text-center h5"><b><%= AdvertisementList[i].Brand %></b> <%= AdvertisementList[i].ProductName %></div>
                         <a href="/advertisement/details/<%= AdvertisementList[i]._id %>"><img class="card-img-top" src="<%= AdvertisementList[i].ImageLink %>"></a>
                         <div class="card-body">
                             <p class="card-text">
-                                <%= AdvertisementList[i].Description %>
-                                <br><br>
-                                Price: $<%= AdvertisementList[i].Price %>
-                                <br><br>
-                                Condition: <%= AdvertisementList[i].Condition %>
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <td class="h6">Description:</td>
+                                        <td><%= AdvertisementList[i].Description %></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="h6">Price:</td>
+                                        <td>$ <%= AdvertisementList[i].Price %></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="h6">Condition:</td>
+                                        <td><%= AdvertisementList[i].Condition %></td>
+                                    </tr>
+                                </table>
                             </p>
                         </div>
                         <div class="card-footer text-muted">
