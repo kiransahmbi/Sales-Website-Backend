@@ -42,16 +42,16 @@ module.exports.advertisementList = function(req, res, next) {
 module.exports.displayDetails = (req, res, next) => {
     let id = req.params.id;
 
-    AdvertisementModel.findById(id, (err, details) => {
+    AdvertisementModel.findById({_id: id}, (err, details) => {
         if (err) {
             console.log(err);
             res.end(err);
         } else {
-            QuestionModel.find((err, questionModel) => {
+            QuestionModel.find({AdvertisementID : id}, (err, questions) => {
                 res.render('advertisement/details', {
                     title: 'Details',
-                    advertisement: details,
-                    QuestionModel: questionModel
+                    Advertisement: details,
+                    Questions: questions
                 })
             })
         }
