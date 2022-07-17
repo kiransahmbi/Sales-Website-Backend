@@ -1,0 +1,37 @@
+<%- include ../partials/header %>
+<%- include ../partials/NavBar %>
+
+
+<!-- Content for the Details page -->
+<form class="form" method="POST">
+    <div>
+        <label for="inputQuestion">Question</label>
+        <input type="hidden" name="id" value="<%= item._id %>">
+                <input type="text" class="form-control"
+                    id="inputQuestion"
+                    name="Question" 
+                    value="<%= item.Question %>"
+                    required>
+                <br>
+                <label for="inputAnswer">Answer</label>
+                <input type="text" class="form-control"
+                    id="inputAnswer"
+                    name="Answer" 
+                    value="<%= item.Answer %>"
+                    required>
+                <br>
+    </div>
+    <button class="btn btn-primary my-4" type="submit">
+        <i class="fas fa-edit"></i> 
+        Submit
+    </button>
+    <button class="btn btn-primary my-5" type="edit">
+        <i class="fas fa-edit"></i> 
+        Edit
+    </button>
+
+</form>
+
+
+<%- include ../partials/Footer %>
+
