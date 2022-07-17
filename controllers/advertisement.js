@@ -159,7 +159,6 @@ module.exports.processAddPage = (req, res, next) => {
             Description: req.body.Description,
             Price: req.body.Price,
             Category: req.body.Category,
-            Lifetime: req.body.Lifetime,
             Condition: req.body.Condition,
             ImageLink: req.body.ImageLink
         });
@@ -169,7 +168,7 @@ module.exports.processAddPage = (req, res, next) => {
         }
 
         if (req.body.Lifetime) {
-            //newItem.Lifetime = req.body.Lifetime;
+            newItem.Lifetime = req.body.Lifetime;
         }
 
         AdvertisementModel.create(newItem, (err, item) => {
