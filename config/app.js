@@ -11,6 +11,7 @@ let passport = require('passport');
 var indexRouter = require('../routes/index');
 var advertisementRouter = require('../routes/advertisement');
 var questionRouter = require('../routes/question');
+var usersRouter = require('../routes/users');
 
 // Instantiate Express
 var app = express();
@@ -37,6 +38,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
+app.use('/users', usersRouter);
 app.use('/advertisement', advertisementRouter);
 app.use('/question', questionRouter);
 

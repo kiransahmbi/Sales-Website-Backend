@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let usersController = require('../controllers/user');
+let usersController = require('../controllers/users');
 let passport = require('passport');
 
 // Routes for sign-up
