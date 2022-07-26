@@ -15,8 +15,30 @@ function getErrorMessage(err) {
     }
 };
 
-module.exports.advertisementList = function(req, res, next) {
+module.exports.AdvertisementList = async function(req, res, next){  
+
     try {
+        let advertisementList = await AdvertisementModel.find().populate({
+            path: 'owner',
+            select: 'firstName lastName email username admin created'
+        });
+
+        res.status(200).json(advertisementList);
+        
+    } catch (error) {
+        return res.status(400).json(
+            { 
+                success: false, 
+                message: getErrorMessage(error)
+            }
+        );
+    }
+    
+}
+
+/* module.exports.advertisementList = function(req, res, next) {
+    try {
+        let advertisementList = 
         AdvertisementModel.find((err, advertisementList) => {
             if (err) {
                 console.error(err);
@@ -37,7 +59,7 @@ module.exports.advertisementList = function(req, res, next) {
             message: getErrorMessage(error)
         });
     }
-}
+} */
 // Details page
 module.exports.displayDetails = (req, res, next) => {
     let id = req.params.id;

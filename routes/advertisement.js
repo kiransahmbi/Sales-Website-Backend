@@ -2,21 +2,22 @@ var express = require('express');
 var router = express.Router();
 
 let advertisementController = require('../controllers/advertisement');
+let authController = require('../controllers/auth');
 
 // Get Advertisement List
 router.get('/list', advertisementController.advertisementList);
 
 // Add Router
-router.get('/add', advertisementController.displayAddPage);
-router.post('/add', advertisementController.processAddPage);
+/* POST Route for processing the Add page - CREATE Operation */
+router.post('/add', authController.requireAuth, advertisementController.processAddPage);
 //Detail Router
 router.get('/details/:id', advertisementController.displayDetails);
 
 // Edit Router
-router.get('/edit/:id', advertisementController.displayEditPage);
-router.post('/edit/:id', advertisementController.processEditPage);
+router.put('/edit/:id', authController.requireAuth, authController.isAllowed, advertisementController.processEditPage);
 
 // Delete Router
-router.get('/delete/:id', advertisementController.performDelete);
+router.delete('/delete/:id', authController.requireAuth, authController.isAllowed, advertisementController.performDelete);
+
 
 module.exports = router;
