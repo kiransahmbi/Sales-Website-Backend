@@ -15,7 +15,7 @@ function getErrorMessage(err) {
     }
 };
 
-module.exports.AdvertisementList = async function(req, res, next){  
+module.exports.advertisementList = async function(req, res, next){  
 
     try {
         let advertisementList = await AdvertisementModel.find().populate({
@@ -97,7 +97,7 @@ module.exports.displayEditPage = (req, res, next) => {
     });
 }
 
-module.exports.processEditPage = (req, res, next) => {
+module.exports.processEdit = (req, res, next) => {
     try {
         let id = req.params.id
 
@@ -171,7 +171,7 @@ module.exports.displayAddPage = (req, res, next) => {
     });
 }
 
-module.exports.processAddPage = (req, res, next) => {
+module.exports.processAdd = (req, res, next) => {
     console.log(req.body);
     try {
         let newItem = AdvertisementModel({

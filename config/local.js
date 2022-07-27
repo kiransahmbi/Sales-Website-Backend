@@ -3,8 +3,6 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
 
 module.exports = function() {
-    console.log('====> LocatStrategy function')
-
     passport.use(new LocalStrategy(authLocal));
 };
 
