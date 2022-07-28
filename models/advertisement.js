@@ -20,7 +20,11 @@ let advertisementModel = mongoose.Schema(
                 return new Date(new Date().setMonth(new Date().getMonth() + 1))
             }
         },
-        ImageLink: String 
+        ImageLink: String,
+        owner: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
     },
     {
         collection: "advertisements"

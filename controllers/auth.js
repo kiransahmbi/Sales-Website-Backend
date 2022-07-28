@@ -1,5 +1,5 @@
 let passport = require('passport');
-let Inventory = require('../models/advertisement');
+let Advertisment = require('../models/advertisement');
 let UserModel = require('../models/user');
 
 function getErrorMessage(err) {    
@@ -44,15 +44,15 @@ exports.isAllowed = async function (req, res, next){
 
     try {
         let id = req.params.id
-        let inventoryItem = await Inventory.findById(id).populate('owner');   
+        let advertismentItem = await Advertisment.findById(id).populate('owner');   
         
         // If there is no item found.
-        if(inventoryItem == null){
+        if(advertismentItem == null){
             throw new Error('Item not found.') // Express will catch this on its own.
         }
-        else if(inventoryItem.owner != null){ // If the item found has a owner.
+        else if(advertismentItem.owner != null){ // If the item found has a owner.
 
-            if(inventoryItem.owner._id != req.payload.id){ // If the owner differs.
+            if(advertismentItem.owner._id != req.payload.id){ // If the owner differs.
                 
                 let currentUser = await UserModel.findOne({_id: req.payload.id}, 'admin');
 

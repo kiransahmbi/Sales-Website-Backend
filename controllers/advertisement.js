@@ -36,66 +36,42 @@ module.exports.advertisementList = async function(req, res, next){
     
 }
 
-/* module.exports.advertisementList = function(req, res, next) {
-    try {
-        let advertisementList = 
-        AdvertisementModel.find((err, advertisementList) => {
-            if (err) {
-                console.error(err);
-                return res.status(400).json({
-                    success: false,
-                    message: getErrorMessage(err)
-                });
-            } else {
-                res.render('advertisement/advertisements', {
-                    title: 'Advertisements',
-                    AdvertisementList: advertisementList
-                });
-            }
-        });
-    } catch (error) {
-        return res.status(400).json({
-            success: false,
-            message: getErrorMessage(error)
-        });
-    }
-} */
-// Details page
-module.exports.displayDetails = (req, res, next) => {
-    let id = req.params.id;
+// // Details page
+// module.exports.displayDetails = (req, res, next) => {
+//     let id = req.params.id;
 
-    AdvertisementModel.findById({_id: id}, (err, details) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        } else {
-            QuestionModel.find({AdvertisementID : id}, (err, questions) => {
-                res.render('advertisement/details', {
-                    title: 'Details',
-                    Advertisement: details,
-                    Questions: questions
-                })
-            })
-        }
-    });
-}
+//     AdvertisementModel.findById({_id: id}, (err, details) => {
+//         if (err) {
+//             console.log(err);
+//             res.end(err);
+//         } else {
+//             QuestionModel.find({AdvertisementID : id}, (err, questions) => {
+//                 res.render('advertisement/details', {
+//                     title: 'Details',
+//                     Advertisement: details,
+//                     Questions: questions
+//                 })
+//             })
+//         }
+//     });
+// }
 
 // Edit Controllers
-module.exports.displayEditPage = (req, res, next) => {
-    let id = req.params.id;
+// module.exports.displayEditPage = (req, res, next) => {
+//     let id = req.params.id;
 
-    AdvertisementModel.findById(id, (err, itemToEdit) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        } else {
-            res.render('advertisement/add_edit', {
-                title: 'Edit Advertisement',
-                item: itemToEdit
-            })
-        }
-    });
-}
+//     AdvertisementModel.findById(id, (err, itemToEdit) => {
+//         if (err) {
+//             console.log(err);
+//             res.end(err);
+//         } else {
+//             res.render('advertisement/add_edit', {
+//                 title: 'Edit Advertisement',
+//                 item: itemToEdit
+//             })
+//         }
+//     });
+// }
 
 module.exports.processEdit = (req, res, next) => {
     try {
@@ -109,7 +85,8 @@ module.exports.processEdit = (req, res, next) => {
             Price: req.body.Price,
             Category: req.body.Category,
             Condition: req.body.Condition,
-            ImageLink: req.body.ImageLink
+            ImageLink: req.body.ImageLink,
+            owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
         });
 
         if (req.body.DateEnabled) {
@@ -124,11 +101,15 @@ module.exports.processEdit = (req, res, next) => {
 
         AdvertisementModel.updateOne({ _id: id }, updatedItem, (err) => {
             if (err) {
-                console.log(err);
-                res.end(err);
+                return res.status(400).json({
+                    success: false,
+                    message: getErrorMessage(err)
+                });
             } else {
-                //refresh advertisements
-                res.redirect('/advertisement/list');
+                res.status(200).json({
+                    success: true,
+                    message: "Item Updated Successfully"
+                });
             }
         });
     } catch (error) {
@@ -146,11 +127,15 @@ module.exports.performDelete = (req, res, next) => {
 
         AdvertisementModel.remove({ _id: id }, (err) => {
             if (err) {
-                console.log(err);
-                res.end(err);
+                return res.status(400).json({
+                    success: false,
+                    message: getErrorMessage(err)
+                });
             } else {
-                // refresh advertisements
-                res.redirect('/advertisement/list');
+                res.status(200).json({
+                    success: true,
+                    message: "Item Deleted Successfully"
+                });
             }
         });
     } catch (error) {
@@ -195,12 +180,12 @@ module.exports.processAdd = (req, res, next) => {
 
         AdvertisementModel.create(newItem, (err, item) => {
             if (err) {
-                console.log(err);
-                res.end(err);
+                return res.status(400).json({
+                    success: false,
+                    message: getErrorMessage(err)
+                });
             } else {
-                // refresh advertisements
-                console.log(item);
-                res.redirect('/advertisement/list')
+                res.status(200).json(item);
             }
         });
     } catch (error) {

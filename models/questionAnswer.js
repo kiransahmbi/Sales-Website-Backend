@@ -6,7 +6,11 @@ let questionAnswerModel = mongoose.Schema(
     {
         AdvertisementID: mongoose.Schema.Types.ObjectId,
         Question: String,
-        Answer: String
+        Answer: String,
+        owner: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
     },
     {
         collection: "QuestionAnswer"
