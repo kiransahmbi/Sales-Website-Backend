@@ -14,17 +14,25 @@ function getErrorMessage(err) {
 };
 
 // Add Controllers
-// module.exports.displayAddPage = (req, res, next) => {
-//     let newItem = QuestionModel();
-//     let advertisement = req.params.advertisement;
+module.exports.getQuestions = async (req, res, next) => {
 
-//     res.render('question/add_update', {
-//         title: 'Ask a Question',
-//         item: newItem,
-//         action: "add",
-//         Advertisement: advertisement
-//     });
-// }
+    try {
+        let questionAnswerList = await QuestionModel.find().populate({
+            path: 'Owner',
+            select: '_id AdvertisementID Question Answer'
+        });
+
+        res.status(200).json(questionAnswerList);
+        
+    } catch (error) {
+        return res.status(400).json(
+            { 
+                success: false, 
+                message: getErrorMessage(error)
+            }
+        );
+    }
+}
 
 module.exports.processAddPage = (req, res, next) => {
     

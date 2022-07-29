@@ -1,6 +1,5 @@
 // Create a reference to the model
 let AdvertisementModel = require('../models/advertisement');
-let QuestionModel = require('../models/questionAnswer');
 
 function getErrorMessage(err) {
     if (err.errors) {
@@ -19,7 +18,7 @@ module.exports.advertisementList = async function(req, res, next){
 
     try {
         let advertisementList = await AdvertisementModel.find().populate({
-            path: 'owner',
+            path: 'Owner',
             select: 'firstName lastName email username admin created'
         });
 
