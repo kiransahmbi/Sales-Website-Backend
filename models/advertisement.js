@@ -21,7 +21,7 @@ let advertisementModel = mongoose.Schema(
             }
         },
         ImageLink: String,
-        owner: {
+        Owner: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         }

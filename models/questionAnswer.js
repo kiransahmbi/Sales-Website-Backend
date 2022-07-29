@@ -7,7 +7,7 @@ let questionAnswerModel = mongoose.Schema(
         AdvertisementID: mongoose.Schema.Types.ObjectId,
         Question: String,
         Answer: String,
-        owner: {
+        Owner: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         }

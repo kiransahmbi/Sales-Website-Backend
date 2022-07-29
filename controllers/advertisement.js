@@ -86,7 +86,7 @@ module.exports.processEdit = (req, res, next) => {
             Category: req.body.Category,
             Condition: req.body.Condition,
             ImageLink: req.body.ImageLink,
-            owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
+            Owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
         });
 
         if (req.body.DateEnabled) {
@@ -167,7 +167,8 @@ module.exports.processAdd = (req, res, next) => {
             Price: req.body.Price,
             Category: req.body.Category,
             Condition: req.body.Condition,
-            ImageLink: req.body.ImageLink
+            ImageLink: req.body.ImageLink,
+            Owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
         });
 
         if (req.body.DateEnabled) {

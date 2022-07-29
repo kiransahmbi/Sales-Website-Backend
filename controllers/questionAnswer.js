@@ -34,7 +34,7 @@ module.exports.processAddPage = (req, res, next) => {
             _id: req.body.id,
             AdvertisementID: req.body.advertisementID,
             Question: req.body.Question,
-            owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
+            Owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
         });
 
         QuestionModel.create(newItem, (err, item) => {
@@ -87,7 +87,7 @@ module.exports.processEditPage = (req, res, next) => {
             AdvertisementID: req.params.advertisement,
             Question: req.body.Question,
             Answer: req.body.Answer,
-            owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
+            Owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
         });
 
         console.log(updatedItem);
