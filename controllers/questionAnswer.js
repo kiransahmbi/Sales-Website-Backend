@@ -97,7 +97,7 @@ module.exports.processEdit = (req, res, next) => {
                     {
                         success: true,
                         message: 'Item edited successfully.',
-                        item: item
+                        item: updatedItem
                     }
                 )
             }
