@@ -35,7 +35,7 @@ module.exports.advertisementList = async function(req, res, next){
     
 }
 
-// // Details page
+// Details page
 // module.exports.displayDetails = (req, res, next) => {
 //     let id = req.params.id;
 
@@ -45,11 +45,7 @@ module.exports.advertisementList = async function(req, res, next){
 //             res.end(err);
 //         } else {
 //             QuestionModel.find({AdvertisementID : id}, (err, questions) => {
-//                 res.render('advertisement/details', {
-//                     title: 'Details',
-//                     Advertisement: details,
-//                     Questions: questions
-//                 })
+//                 res.status(200).json(advertisementList);
 //             })
 //         }
 //     });

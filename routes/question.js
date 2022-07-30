@@ -4,7 +4,7 @@ var router = express.Router();
 let questionController = require('../controllers/questionAnswer');
 
 // Get Router
-router.get('/:advertisement', questionController.getQuestions);
+router.get('/', questionController.getQuestions);
 
 // Add Router
 router.post('/add', questionController.processAddPage);

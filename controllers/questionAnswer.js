@@ -17,13 +17,18 @@ function getErrorMessage(err) {
 module.exports.getQuestions = async function (req, res, next) {
 
     try {
-        let questionAnswerList = await QuestionModel.find().populate({
-            path: 'owner',
-            select: 'id AdvertisementID Question Answer'
+        QuestionModel.find((err, questionAnswerList) => {
+            if (err) {
+                console.error(err);
+                return res.status(400).json({
+                    success: false,
+                    message: getErrorMessage(err)
+                });
+            } else {
+                res.status(200).json(questionAnswerList);
+            }
         });
-
-        res.status(200).json(questionAnswerList);
-        
+                 
     } catch (error) {
         return res.status(400).json(
             { 
