@@ -39,7 +39,7 @@ module.exports.getQuestions = async function (req, res, next) {
     }
 }
 
-module.exports.processAddPage = (req, res, next) => {
+module.exports.processAdd = (req, res, next) => {
     try {
         let newItem = QuestionModel({
             _id: req.body.id,
@@ -55,7 +55,14 @@ module.exports.processAddPage = (req, res, next) => {
                 });
             } else {
                 console.log(item);
-                res.status(200).json(item);
+
+                res.status(200).json(
+                    {
+                        success: true,
+                        message: 'Item added successfully.',
+                        item: item
+                    }
+                )
             }
         });
     } catch (error) {
@@ -66,9 +73,8 @@ module.exports.processAddPage = (req, res, next) => {
     }
 }
 
-module.exports.processEditPage = (req, res, next) => {
+module.exports.processEdit = (req, res, next) => {
     let id = req.params.id;
-    console.log(id);
 
     try {
         let updatedItem = QuestionModel({
@@ -78,8 +84,6 @@ module.exports.processEditPage = (req, res, next) => {
             Answer: req.body.Answer
         });
 
-        console.log(updatedItem);
-
         QuestionModel.updateOne({ _id: id }, updatedItem, (err) => {
             if (err) {
                 return res.status(400).json({
@@ -87,7 +91,15 @@ module.exports.processEditPage = (req, res, next) => {
                     message: getErrorMessage(err)
                 });
             } else {
-                res.status(200).json(updatedItem);
+                console.log(updatedItem);
+
+                res.status(200).json(
+                    {
+                        success: true,
+                        message: 'Item edited successfully.',
+                        item: item
+                    }
+                )
             }
         });
     } catch (error) {
@@ -103,14 +115,19 @@ module.exports.performDelete = (req, res, next) => {
     try {
         let id = req.params.id;
 
-        QuestionModel.deleteOne({ _id: id }, (err) => {
+        QuestionModel.remove({ _id: id }, (err) => {
             if (err) {
                 return res.status(400).json({
                     success: false,
                     message: getErrorMessage(err)
                 });
             } else {
-                res.status(200);
+                res.status(200).json(
+                    {
+                        success: true,
+                        message: 'Item deleted successfully.'
+                    }
+                )
             }
         });
     } catch (error) {

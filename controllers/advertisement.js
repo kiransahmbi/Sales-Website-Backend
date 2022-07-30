@@ -35,38 +35,7 @@ module.exports.advertisementList = async function(req, res, next){
     
 }
 
-// Details page
-// module.exports.displayDetails = (req, res, next) => {
-//     let id = req.params.id;
-
-//     AdvertisementModel.findById({_id: id}, (err, details) => {
-//         if (err) {
-//             console.log(err);
-//             res.end(err);
-//         } else {
-//             QuestionModel.find({AdvertisementID : id}, (err, questions) => {
-//                 res.status(200).json(advertisementList);
-//             })
-//         }
-//     });
-// }
-
 // Edit Controllers
-// module.exports.displayEditPage = (req, res, next) => {
-//     let id = req.params.id;
-
-//     AdvertisementModel.findById(id, (err, itemToEdit) => {
-//         if (err) {
-//             console.log(err);
-//             res.end(err);
-//         } else {
-//             res.render('advertisement/add_edit', {
-//                 title: 'Edit Advertisement',
-//                 item: itemToEdit
-//             })
-//         }
-//     });
-// }
 
 module.exports.processEdit = (req, res, next) => {
     try {
@@ -103,7 +72,8 @@ module.exports.processEdit = (req, res, next) => {
             } else {
                 res.status(200).json({
                     success: true,
-                    message: "Item Updated Successfully"
+                    message: "Item Updated Successfully",
+                    item: item
                 });
             }
         });
@@ -181,7 +151,13 @@ module.exports.processAdd = (req, res, next) => {
                     message: getErrorMessage(err)
                 });
             } else {
-                res.status(200).json(item);
+                res.status(200).json(
+                    {
+                        success: true,
+                        message: 'Item deleted successfully.',
+                        item: item
+                    }
+                )
             }
         });
     } catch (error) {
