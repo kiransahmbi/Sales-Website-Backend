@@ -14,12 +14,12 @@ function getErrorMessage(err) {
 };
 
 // Add Controllers
-module.exports.getQuestions = async (req, res, next) => {
+module.exports.getQuestions = async function (req, res, next) {
 
     try {
         let questionAnswerList = await QuestionModel.find().populate({
-            path: 'Owner',
-            select: '_id AdvertisementID Question Answer'
+            path: 'owner',
+            select: 'id AdvertisementID Question Answer'
         });
 
         res.status(200).json(questionAnswerList);
@@ -35,14 +35,11 @@ module.exports.getQuestions = async (req, res, next) => {
 }
 
 module.exports.processAddPage = (req, res, next) => {
-    
-    console.log(req.body);
     try {
         let newItem = QuestionModel({
             _id: req.body.id,
-            AdvertisementID: req.body.advertisementID,
-            Question: req.body.Question,
-            Owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
+            AdvertisementID: req.body.AdvertisementID,
+            Question: req.body.Question
         });
 
         QuestionModel.create(newItem, (err, item) => {
@@ -64,48 +61,28 @@ module.exports.processAddPage = (req, res, next) => {
     }
 }
 
-
-// Edit Controllers
-// module.exports.displayEditPage = (req, res, next) => {
-//     let id = req.params.id;
-//     let advertisement = req.params.advertisement;
-
-//     QuestionModel.findById(id, (err, itemToEdit) => {
-//         if (err) {
-//             console.log(err);
-//             res.end(err);
-//         } else {
-//             res.render('question/add_update', {
-//                 title: 'Update Answer',
-//                 item: itemToEdit,
-//                 action: "edit",
-//                 Advertisement: advertisement
-//             })
-//         }
-//     });
-// }
-
 module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id;
-    let advertisement = req.params.advertisement;
+    console.log(id);
 
     try {
         let updatedItem = QuestionModel({
-            _id: req.params.id,
-            AdvertisementID: req.params.advertisement,
+            _id: id,
+            AdvertisementID: req.body.AdvertisementID,
             Question: req.body.Question,
-            Answer: req.body.Answer,
-            Owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
+            Answer: req.body.Answer
         });
 
         console.log(updatedItem);
 
         QuestionModel.updateOne({ _id: id }, updatedItem, (err) => {
             if (err) {
-                console.log(err);
-                res.end(err);
+                return res.status(400).json({
+                    success: false,
+                    message: getErrorMessage(err)
+                });
             } else {
-                res.status(200).json(item);
+                res.status(200).json(updatedItem);
             }
         });
     } catch (error) {
@@ -119,7 +96,6 @@ module.exports.processEditPage = (req, res, next) => {
 //Delete Controller
 module.exports.performDelete = (req, res, next) => {
     try {
-        console.log(req.params);
         let id = req.params.id;
 
         QuestionModel.deleteOne({ _id: id }, (err) => {
@@ -129,7 +105,7 @@ module.exports.performDelete = (req, res, next) => {
                     message: getErrorMessage(err)
                 });
             } else {
-                res.status(200).json(item);
+                res.status(200);
             }
         });
     } catch (error) {

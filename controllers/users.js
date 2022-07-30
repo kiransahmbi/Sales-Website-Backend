@@ -51,7 +51,7 @@ module.exports.signup = function(req, res, next) {
 };
 
 module.exports.signin = function(req, res, next){
-  passport.authenticate('local', 
+  passport.authenticate('login', 
   async (err, user, info) => {
     try {
       if (err || !user) {

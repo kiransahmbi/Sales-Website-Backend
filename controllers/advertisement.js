@@ -18,7 +18,7 @@ module.exports.advertisementList = async function(req, res, next){
 
     try {
         let advertisementList = await AdvertisementModel.find().populate({
-            path: 'Owner',
+            path: 'owner',
             select: 'firstName lastName email username admin created'
         });
 
@@ -85,7 +85,7 @@ module.exports.processEdit = (req, res, next) => {
             Category: req.body.Category,
             Condition: req.body.Condition,
             ImageLink: req.body.ImageLink,
-            Owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
+            owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
         });
 
         if (req.body.DateEnabled) {
@@ -167,7 +167,7 @@ module.exports.processAdd = (req, res, next) => {
             Category: req.body.Category,
             Condition: req.body.Condition,
             ImageLink: req.body.ImageLink,
-            Owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
+            owner: (req.body.owner == null || req.body.owner == "") ? req.payload.id : req.body.owner
         });
 
         if (req.body.DateEnabled) {

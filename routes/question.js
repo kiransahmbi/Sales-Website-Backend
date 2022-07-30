@@ -7,13 +7,13 @@ let questionController = require('../controllers/questionAnswer');
 router.get('/:advertisement', questionController.getQuestions);
 
 // Add Router
-router.post('/add/:id/:advertisement', questionController.processAddPage);
+router.post('/add', questionController.processAddPage);
 
 // Edit Router
-router.post('/edit/:id/:advertisement', questionController.processEditPage);
+router.post('/edit/:id', questionController.processEditPage);
 
 // Delete Router
-router.get('/delete/:id/:advertisement', questionController.performDelete);
+router.get('/delete/:id', questionController.performDelete);
 
 
 module.exports = router;
