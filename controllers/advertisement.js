@@ -112,14 +112,6 @@ module.exports.performDelete = (req, res, next) => {
 }
 
 // Add Controllers
-module.exports.displayAddPage = (req, res, next) => {
-    let newItem = AdvertisementModel();
-
-    res.render('advertisement/add_edit', {
-        title: 'Add a Advertisement',
-        item: newItem
-    });
-}
 
 module.exports.processAdd = (req, res, next) => {
     console.log(req.body);
@@ -151,12 +143,7 @@ module.exports.processAdd = (req, res, next) => {
                     message: getErrorMessage(err)
                 });
             } else {
-                res.status(200).json(
-                    {
-                        success: true,
-                        item: item
-                    }
-                )
+                res.status(200).json(item)
             }
         });
     } catch (error) {

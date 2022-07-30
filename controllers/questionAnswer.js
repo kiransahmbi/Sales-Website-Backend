@@ -56,12 +56,7 @@ module.exports.processAdd = (req, res, next) => {
             } else {
                 console.log(item);
 
-                res.status(200).json(
-                    {
-                        success: true,
-                        item: item
-                    }
-                )
+                res.status(200).json(item);
             }
         });
     } catch (error) {
