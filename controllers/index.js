@@ -1,8 +1,8 @@
 exports.home = function(req, res, next) {
-    // res.render('index', { 
-    //     title: 'Home'
-    // });
-    res.redirect('/advertisement/list');
+    res.render('index', {
+        title: 'Home'
+    });
+    // res.redirect('/advertisement/list');
 };
 
 exports.aboutUs = function(req, res, next) {
