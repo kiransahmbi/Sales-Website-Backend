@@ -7,9 +7,6 @@ let authController = require('../controllers/auth');
 // Get Advertisement List
 router.get('/list', advertisementController.advertisementList);
 
-//Detail Router
-// router.get('/:id', advertisementController.displayDetails);
-
 // Add Router
 router.post('/add', authController.requireAuth, advertisementController.processAdd);
 
