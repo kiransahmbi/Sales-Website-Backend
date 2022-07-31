@@ -4,16 +4,16 @@ var router = express.Router();
 let questionController = require('../controllers/questionAnswer');
 
 // Get Router
-router.get('/:advertisement', questionController.getQuestions);
+router.get('/', questionController.getQuestions);
 
 // Add Router
-router.post('/add', questionController.processAddPage);
+router.post('/add', questionController.processAdd);
 
 // Edit Router
-router.post('/edit/:id', questionController.processEditPage);
+router.put('/edit/:id/:advertisement', questionController.processEdit);
 
 // Delete Router
-router.get('/delete/:id', questionController.performDelete);
+router.delete('/delete/:id', questionController.performDelete);
 
 
 module.exports = router;
